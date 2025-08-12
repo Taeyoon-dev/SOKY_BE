@@ -1,8 +1,8 @@
 // main.ts
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
+import { NestFactory } from '@nestjs/core';
 import { SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from './app.module';
 import { swaggerConfig } from './config/swagger.config';
 import { globalValidationPipe } from './config/validation.pipe';
 
@@ -16,7 +16,7 @@ async function bootstrap() {
 
   // CORS: 특정 origin만 허용
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
     credentials: true,
   });
 
